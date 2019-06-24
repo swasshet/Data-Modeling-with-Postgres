@@ -6,7 +6,14 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
-    # open song file
+    """    Processes the song file from song_data directory to insert data into two tables: song_data and artist_data
+    Args:
+    - cur: Allows to executes queries in  Postgres database
+    - filepath: File to be Loaded into  extracted from Postgres tables
+    
+    Returns:
+    None
+    """
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
