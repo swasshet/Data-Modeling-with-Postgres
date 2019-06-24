@@ -9,7 +9,7 @@ def process_song_file(cur, filepath):
     """    Processes the song file from song_data directory to insert data into two tables: song_data and artist_data
     Args:
     - cur: Allows to executes queries in  Postgres database
-    - filepath: File to be Loaded into  extracted from Postgres tables
+    - filepath: File to be Loaded into  Postgres tables
     
     Returns:
     None
@@ -27,6 +27,14 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """    Processes the log file from log_data directory to insert data into two table: time and user 
+    Args:
+    - cur: Allows to executes queries in  Postgres database
+    - filepath: File to be Loaded into  Postgres tables
+    
+    Returns:
+    None
+    """
     # open log file
     df =  pd.read_json(filepath, lines=True)
 
