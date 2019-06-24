@@ -14,6 +14,7 @@ def process_song_file(cur, filepath):
     Returns:
     None
     """
+     # open song file
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
@@ -78,7 +79,21 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
-    # get all files matching extension from directory
+      """
+    Process the data in all the files in data directory and creates Postgres tables
+    
+    Args:
+        - cur: Allows to execute Postgres command
+        - conn: Establishes connection to Postgres database
+        - filepath: Directory containing all the files processed into Postgres tables
+        - func: Specifies which function should be executed, can take two values based on the file we are processing.
+            + process_song_data: when filepath is song_data, or
+            + process_log_data: when filepath is log_data
+    
+    Returns:
+    None
+    """
+    "get all files matching extension from directory"
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
