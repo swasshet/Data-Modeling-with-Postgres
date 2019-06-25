@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS artists
 (artist_id text PRIMARY KEY, 
  name text, 
  location text, 
- lattitude text, 
- longitude text);
+ lattitude float, 
+ longitude float);
 """)
 
 time_table_create =  ("""
